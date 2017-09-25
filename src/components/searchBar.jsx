@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 
 class SearchBar extends Component {
   
-  // onChangeHandler();
+  // changeInputHandler(event) {
+  //   console.log(event);
+  // };
 
-  
   render() {
     return (
-      <input></input>
+      <input className="form-control"></input>
     );
   }
 }
