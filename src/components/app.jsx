@@ -8,18 +8,22 @@ var giphy = require('giphy-api')('fwyZq0pVmzjsbbqSNwuc51Y86Ved2ATP'); // API KEY
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { gifIds: ['xT9IgDEI1iZyb2wqo8','xT9IgDEI1iZyb2wqo8']};
+    this.state = { 
+      gifIds: ['xT9IgDEI1iZyb2wqo8','xT9IgDEI1iZyb2wqo8'],
+      selectedGif: 'xT9IgDEI1iZyb2wqo8'
+    };
   }
-  
+
+  handleSelectedGif = (giphyId) => {
+    console.log('coucou')
+    // this.setState({selectedGif: giphyId})
+  }
+
   searchGif = (term) => {
     const word = (term.target.value);
     const results = giphy.search(word, (err, res) => {
       this.setState({gifIds: res.data.slice(0, 10).map(gif => gif.id)});
     });
-  }
-
-  handleClick = (e) => {
-    console.log(event);
   }
   
   render() {
@@ -28,7 +32,7 @@ class App extends Component {
         <div className="main-scene">
           <SearchBar className="form-control" handleChange={this.searchGif}/>
           <div className="main-frame">
-            <Gif className="gif" giphyId='xT9IgDEI1iZyb2wqo8' />
+            <Gif className="gif" giphyId={this.state.selectedGif} />
           </div>
         </div>
         <div className="list-container">
