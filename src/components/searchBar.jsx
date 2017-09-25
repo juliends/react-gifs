@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
+  constructor(props) {
+    super(props);
+  }
   
-  // changeInputHandler(event) {
-  //   console.log(event);
-  // };
-
   render() {
     return (
-      <input className="form-control"></input>
+      <input className="form-control" onChange={this.props.handleChange}></input>
     );
   }
 }
