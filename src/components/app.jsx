@@ -13,7 +13,6 @@ class App extends Component {
   
   searchGif = (term) => {
     const word = (term.target.value);
-    
     const results = giphy.search(word, (err, res) => {
       this.setState({gifIds: res.data.slice(0, 10).map(gif => gif.id)});
     });
@@ -28,7 +27,7 @@ class App extends Component {
       <div>
         <SearchBar handleChange={this.searchGif}/>
         <Gif giphyId='xT9IgDEI1iZyb2wqo8' />
-        <GifList gifIds={this.state.gifIds} handleClick={this.handleClick} />  
+        <GifList gifIds={this.state.gifIds} />  
       </div>
     )   
   }
