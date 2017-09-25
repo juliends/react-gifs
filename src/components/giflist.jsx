@@ -1,13 +1,11 @@
-// TODO: import the right dependencies
 import React from 'react';
 import Gif from './gif'
 
-const GifList = (props) => {
- 
+const GifList = (props) => { 
   return (
     <div>
       {
-        props.gifIds.map((id) => <Gif giphyId={id} onClick={() => this.props.handleClick} />)
+        props.gifIds.map(id => <Gif giphyId={id} onClick={() => this.props.handleClick} />)
       }
     </div>
   )

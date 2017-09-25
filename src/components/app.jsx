@@ -12,24 +12,19 @@ class App extends Component {
       selectedGif: 'xT9IgDEI1iZyb2wqo8'
     };
   }
-
-  clicked = (event) => {
-    console.log(event)
-  }
-
-  handleSelectedGif = (giphyId) => {
-    console.log('coucou')
-    // this.setState({selectedGif: giphyId})
-  }
-
-
+  
   searchGif = (term) => {
     const word = term.target.value;
-    const results = giphy.search(word, (err, res) => {
+    giphy.search(word, (err, res) => {
       this.setState({gifIds: res.data.slice(0, 10).map(gif => gif.id)});
     });
   }
   
+  handleSelectedGif = (id) => {
+    console.log('id');
+    this.setState({selectedGif: id});
+  }
+
   render() {
     return (
       <div>
@@ -41,7 +36,7 @@ class App extends Component {
         </div>
         <div className="list-container">
           <div className="gif-list">
-            <GifList className="list-container" gifIds={this.state.gifIds} handleClick={this.state.handleSelectedGif} />  
+            <GifList className="list-container" gifIds={this.state.gifIds} handleClick={this.handleSelectedGif} />  
           </div>
         </div>  
       </div>
