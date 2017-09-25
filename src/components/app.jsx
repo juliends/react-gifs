@@ -1,4 +1,3 @@
-// TODO: import the right dependencies
 import React, { Component } from 'react';
 import Gif from './gif';
 import GifList from './giflist';
@@ -9,9 +8,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      gifIds: ['xT9IgDEI1iZyb2wqo8','xT9IgDEI1iZyb2wqo8'],
+      gifIds: [],
       selectedGif: 'xT9IgDEI1iZyb2wqo8'
     };
+  }
+
+  clicked = (event) => {
+    console.log(event)
   }
 
   handleSelectedGif = (giphyId) => {
@@ -19,8 +22,9 @@ class App extends Component {
     // this.setState({selectedGif: giphyId})
   }
 
+
   searchGif = (term) => {
-    const word = (term.target.value);
+    const word = term.target.value;
     const results = giphy.search(word, (err, res) => {
       this.setState({gifIds: res.data.slice(0, 10).map(gif => gif.id)});
     });
@@ -37,7 +41,7 @@ class App extends Component {
         </div>
         <div className="list-container">
           <div className="gif-list">
-            <GifList className="list-container" gifIds={this.state.gifIds} />  
+            <GifList className="list-container" gifIds={this.state.gifIds} handleClick={this.state.handleSelectedGif} />  
           </div>
         </div>  
       </div>
