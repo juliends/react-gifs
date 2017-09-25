@@ -11,12 +11,16 @@ class App extends Component {
     this.state = { gifIds: ['xT9IgDEI1iZyb2wqo8','xT9IgDEI1iZyb2wqo8']};
   }
   
-  searchGif(term){
+  searchGif = (term) => {
     const word = (term.target.value);
-    giphy.search(word, function (err, res) {
-      const ids = res.data.slice(0, 10).map(gif => gif.id);
-      console.log(ids);
+    
+    const results = giphy.search(word, (err, res) => {
+      this.setState({gifIds: res.data.slice(0, 10).map(gif => gif.id)});
     });
+  }
+
+  handleClick = (e) => {
+    console.log(event);
   }
   
   render() {
@@ -24,7 +28,7 @@ class App extends Component {
       <div>
         <SearchBar handleChange={this.searchGif}/>
         <Gif giphyId='xT9IgDEI1iZyb2wqo8' />
-        <GifList gifIds={this.state.gifIds} />  
+        <GifList gifIds={this.state.gifIds} handleClick={this.handleClick} />  
       </div>
     )   
   }
