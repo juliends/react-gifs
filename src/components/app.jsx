@@ -25,9 +25,17 @@ class App extends Component {
   render() {
     return (
       <div>
-        <SearchBar handleChange={this.searchGif}/>
-        <Gif giphyId='xT9IgDEI1iZyb2wqo8' />
-        <GifList gifIds={this.state.gifIds} />  
+        <div className="main-scene">
+          <SearchBar className="form-control" handleChange={this.searchGif}/>
+          <div className="main-frame">
+            <Gif className="gif" giphyId='xT9IgDEI1iZyb2wqo8' />
+          </div>
+        </div>
+        <div className="list-container">
+          <div className="gif-list">
+            <GifList className="list-container" gifIds={this.state.gifIds} />  
+          </div>
+        </div>  
       </div>
     )   
   }
