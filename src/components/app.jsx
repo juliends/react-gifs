@@ -3,18 +3,19 @@ import React, { Component } from 'react';
 import Gif from './gif';
 import GifList from './giflist';
 import SearchBar from './searchBar';
-import giphy from 'giphy-api';
+var giphy = require('giphy-api')('fwyZq0pVmzjsbbqSNwuc51Y86Ved2ATP'); // API KEY
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = { gifIds: ['xT9IgDEI1iZyb2wqo8','xT9IgDEI1iZyb2wqo8']};
   }
-
+  
   searchGif(term){
     const word = (term.target.value);
     giphy.search(word, function (err, res) {
-      console.log(res);
+      const ids = res.data.slice(0, 10).map(gif => gif.id);
+      console.log(ids);
     });
   }
   
