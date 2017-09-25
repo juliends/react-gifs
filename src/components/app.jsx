@@ -15,7 +15,7 @@ class App extends Component {
       <div>
         <SearchBar />
         <Gif giphyId='xT9IgDEI1iZyb2wqo8' />
-        <GifList />  
+        <GifList gifIds={['xT9IgDEI1iZyb2wqo8','xT9IgDEI1iZyb2wqo8']} />  
       </div>
     )   
   }
