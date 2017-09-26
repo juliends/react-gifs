@@ -7,6 +7,7 @@ var giphy = require('giphy-api')('fwyZq0pVmzjsbbqSNwuc51Y86Ved2ATP'); // API KEY
 class App extends Component {
   constructor(props) {
     super(props);
+    
     this.state = { 
       gifIds: [],
       selectedGif: 'xT9IgDEI1iZyb2wqo8'
@@ -21,7 +22,6 @@ class App extends Component {
   }
   
   handleSelectedGif = (id) => {
-    console.log('id');
     this.setState({selectedGif: id});
   }
 
