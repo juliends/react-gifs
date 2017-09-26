@@ -5,7 +5,7 @@ const GifList = (props) => {
   return (
     <div>
       {
-        props.gifIds.map(id => <Gif giphyId={id} onClick={() => this.props.handleClick} />)
+        props.gifIds.map(id => <Gif giphyId={id} onListItemClick={props.selectedGif} />)
       }
     </div>
   )

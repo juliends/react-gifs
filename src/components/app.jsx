@@ -36,7 +36,7 @@ class App extends Component {
         </div>
         <div className="list-container">
           <div className="gif-list">
-            <GifList className="list-container" gifIds={this.state.gifIds} handleClick={this.handleSelectedGif} />  
+            <GifList className="list-container" gifIds={this.state.gifIds} selectedGif={this.handleSelectedGif} />  
           </div>
         </div>  
       </div>
